@@ -1,0 +1,77 @@
+schema{
+    query: Query
+    mutation: Mutation
+}
+type Query {
+    getAll: [Account]
+    getById(idAccount:Int): Account
+}
+type Mutation{
+    add(account:AccountDTO): Account
+}
+type Account {
+    idAccount: ID!
+    accountNumber: Float!
+    balance: Float!
+    idUser: User
+    pointBBVA: Int!
+    keyAccount: Int!
+}
+type User{
+    idUser: ID!
+    name: String!
+    dateOfBirth: String!
+    address: String!
+}
+type Transaction{
+    idTransaction: ID!
+    type: String!
+    date: String!
+    time: String!
+    amount: Float!
+    concep: String!
+    destinationAccount: Float!
+    sourceAccount: Float!
+    idAccount: Account!  
+}
+type QRCode{
+    idCode: ID!
+    code: Int!
+    amount: Float!
+    idAccount: Account!  
+}
+type RetreatCL{
+    idRetreatCL: ID!
+    date: String!
+    amount: Float!
+    time: String!
+    idAccount: Account!  
+}
+type Recharge{
+    idRecharge: ID!
+    company: String!
+    amount: Float!
+    number: Float!
+    idAccount: Account!  
+}
+type Contact{
+    idContact: ID!
+    name: String!
+    noAccount: Float!
+    idAccount: Account!  
+}
+type Section{
+    idSection: ID!
+    name: String!
+    amount: Float!
+    idAccount: Account!  
+}
+# Input types
+input AccountDTO{
+    idAccount: ID
+    accountNumber: Float!
+    balance: Float!
+    idUser: Int!
+    pointBBVA: Int!
+    keyAccount: Int!
+}
